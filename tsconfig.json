@@ -30,6 +30,12 @@
     },
     {
       "path": "./projects/desktop/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/vendors/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/vendors/tsconfig.spec.json"
     }
 ]
 }
