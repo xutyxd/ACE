@@ -1,5 +1,5 @@
 {
-  "name": "photron",
+  "name": "app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,8 +7,21 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ng:serve": "ng serve",
+    "ng:serve:web": "ng serve -c web -o",
+    "desktop:start": "npm-run-all -p electron:serve desktop:ng:serve",
+    "desktop:ng:serve": "npm run ng:serve -- --project=desktop",
+    "desktop:build": "npm run electron:serve-tsc && ng build --project=desktop --base-href ./",
+    "desktop:build:dev": "npm run desktop:build -- -c dev",
+    "desktop:build:prod": "npm run desktop:build -- -c production",
+    "electron:start": "npm-run-all -p electron:serve desktop:ng:serve",
+    "electron:serve-tsc": "tsc -p projects/desktop/tsconfig-serve.json",
+    "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && npx electron projects/desktop --serve",
+    "electron:local": "npm run desktop:build:prod && npx electron projects/desktop",
+    "electron:build": "npm run desktop:build:prod && electron-builder build"
   },
+  "main": "projects/desktop/index.js",
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.5",
@@ -28,10 +41,13 @@
     "@angular-devkit/build-ng-packagr": "~0.1000.4",
     "@angular/cli": "~10.0.4",
     "@angular/compiler-cli": "~10.0.5",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "electron": "^9.1.2",
+    "electron-builder": "^22.8.0",
+    "electron-reload": "^1.5.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -40,9 +56,11 @@
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^10.0.0",
+    "npm-run-all": "^4.1.5",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.5"
+    "typescript": "~3.9.5",
+    "wait-on": "^5.1.0"
   }
 }
