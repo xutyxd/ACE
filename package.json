@@ -1,6 +1,8 @@
 {
   "name": "app",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "XutyXD",
+  "description": "A boilerplate of angular cordova & electron (ACE)",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,11 +17,19 @@
     "desktop:build": "npm run electron:serve-tsc && ng build --project=desktop --base-href ./",
     "desktop:build:dev": "npm run desktop:build -- -c dev",
     "desktop:build:prod": "npm run desktop:build -- -c production",
+    "mobile:build": "ng build --project=mobile --base-href ./",
+    "mobile:build:prod": "npm run mobile:build -- --c production",
     "electron:start": "npm-run-all -p electron:serve desktop:ng:serve",
     "electron:serve-tsc": "tsc -p projects/desktop/tsconfig-serve.json",
     "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && npx electron projects/desktop --serve",
     "electron:local": "npm run desktop:build:prod && npx electron projects/desktop",
-    "electron:build": "npm run desktop:build:prod && electron-builder build"
+    "electron:build": "npm run desktop:build:prod && electron-builder build",
+    "cordova:build": "cd projects/cordova && cordova build android",
+    "cordova:build:emulator": "npm-run-all -p mobile:build && cordova:build -- --emulator",
+    "cordova:build:device": "npm-run-all -p mobile:build && cordova:build -- --device",
+    "cordova:build:prod": "npm-run-all -p mobile:build:prod && npm run cordova:build -- --release",
+    "cordova:build:prod:emulator": "npm run cordova:build:prod -- --emulator",
+    "cordova:build:prod:device": "npm run cordova:build:prod -- --device"
   },
   "main": "projects/desktop/index.js",
   "private": true,

@@ -259,7 +259,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mobile",
+            "outputPath": "projects/cordova/www",
             "index": "projects/mobile/src/index.html",
             "main": "projects/mobile/src/main.ts",
             "polyfills": "projects/mobile/src/polyfills.ts",
@@ -270,7 +270,8 @@
               "projects/mobile/src/assets"
             ],
             "styles": [
-              "projects/mobile/src/styles.scss"
+              "projects/mobile/src/styles.scss",
+              "projects/mobile/src/styles/index.css"
             ],
             "scripts": []
           },
