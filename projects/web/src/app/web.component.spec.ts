@@ -1,35 +1,35 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { WebComponent } from './web.component';
 
-describe('AppComponent', () => {
+describe('WebComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        WebComponent
       ],
     }).compileComponents();
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(WebComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'mobile'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it(`should have as title 'web'`, () => {
+    const fixture = TestBed.createComponent(WebComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mobile');
+    expect(app.title).toEqual('web');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(WebComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('mobile app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('web app is running!');
   });
 });

@@ -1,35 +1,35 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { DesktopComponent } from './desktop.component';
 
-describe('AppComponent', () => {
+describe('DesktopComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        DesktopComponent
       ],
     }).compileComponents();
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(DesktopComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'web'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it(`should have as title 'desktop'`, () => {
+    const fixture = TestBed.createComponent(DesktopComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('web');
+    expect(app.title).toEqual('desktop');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(DesktopComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('web app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('desktop app is running!');
   });
 });

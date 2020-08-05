@@ -133,7 +133,7 @@
       },
       "root": "projects/web",
       "sourceRoot": "projects/web/src",
-      "prefix": "app",
+      "prefix": "app-web",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -254,7 +254,7 @@
       },
       "root": "projects/mobile",
       "sourceRoot": "projects/mobile/src",
-      "prefix": "app",
+      "prefix": "app-mobile",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -376,7 +376,7 @@
       },
       "root": "projects/desktop",
       "sourceRoot": "projects/desktop/src",
-      "prefix": "app",
+      "prefix": "app-desktop",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -492,7 +492,7 @@
       "projectType": "library",
       "root": "projects/vendors",
       "sourceRoot": "projects/vendors/src",
-      "prefix": "lib",
+      "prefix": "lib-vendors",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
