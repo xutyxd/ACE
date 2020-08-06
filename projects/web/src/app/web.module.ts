@@ -15,4 +15,4 @@ import { WebComponent } from './web.component';
   providers: [],
   bootstrap: [WebComponent]
 })
-export class AppModule { }
+export class WebModule { }
